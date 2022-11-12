@@ -77,44 +77,44 @@ function App() {
       <div className=" menus-more">
         <div className="more more-options">
           <span>
-            <a href="#">Home</a>
+            <a href={require("./#")}>Home</a>
           </span>
           <span>
-            <a href="#">News</a>
+            <a href={require("./#")}>News</a>
           </span>
           <span>
-            <a href="#">Blog</a>
+            <a href={require("./#")}>Blog</a>
           </span>
           <span>
-            <a href="#">FAQ</a>
+            <a href={require("./#")}>FAQ</a>
           </span>
           <span>
-            <a href="#">Rules</a>
+            <a href={require("./#")}>Rules</a>
           </span>
           <span>
-            <a href="#">Support 4chan</a>
+            <a href={require("./#")}>Support 4chan</a>
           </span>
           <span>
-            <a href="#">Advertise</a>
+            <a href={require("./#")}>Advertise</a>
           </span>
           <span>
-            <a href="#">Press</a>
+            <a href={require("./#")}>Press</a>
           </span>
           <span>
-            <a href="#">日本語</a>
+            <a href={require("./#")}>日本語</a>
           </span>
         </div>
       </div>
 
       <br></br>
       <div className="menus-more2">
-        <span><a href="#">About</a></span>
+        <span><a href={require("./#")}>About</a></span>
         <span>•</span>
-        <span><a href="#">Feedback</a></span>
+        <span><a href={require("./#")}>Feedback</a></span>
         <span>•</span>
-        <span><a href="#">Legal</a></span>
+        <span><a href={require("./#")}>Legal</a></span>
         <span>•</span>
-        <span><a href="#">Contact</a></span>
+        <span><a href={require("./#")}>Contact</a></span>
 
       </div>
       <br></br>
