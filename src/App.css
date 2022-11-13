@@ -41,6 +41,11 @@ button {
   cursor: pointer;
 }
 
+
+.main{
+  padding: 10px;
+}
+
 .header {
   background-color: rgba(165, 42, 42, 0.356);
 }
@@ -50,6 +55,9 @@ button {
   display: flex;
   cursor: pointer;
 }
+
+
+
 
 .description,
 .menus {
