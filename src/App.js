@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { Popular } from "./Popular";
 
 function App() {
   const [descriptionDisplay, setDescriptionDisplay] = useState(true);
@@ -30,7 +31,7 @@ function App() {
               </button>
             </div>
 
-            <div>
+            <div className="logo-content">
               4chan is a simple image - based bulletin board where anyone can
               post comments and share images.There are boards dedicated to a
               variety of topics, from Japanese animation and culture to
@@ -343,13 +344,22 @@ function App() {
             <div className="dropdown">
               <div className="dopdown-button">options ▼</div>
               <div className="dropdown-content">
-                <div>Show Worksafe Content Only</div>
-                <div>Show NSFW Content only</div>
-                <div>Show All Content</div>
+                <div><a href="/">Show Worksafe Content Only</a></div>
+                <div><a href="/">Show NSFW Content only</a></div>
+                <div><a href="/">Show All Content</a></div>
               </div>
             </div>
           </div>
-          <div>post pictures and links</div>
+          <div className="Popular_Threads_content">
+            {Popular.map((popular)=>{
+              const {name, img, description} = popular
+              return(<div className="popular_thread">
+                <h6>{name}</h6>
+                <img src={img} alt={name}/>
+                <p>{description}</p>
+              </div>)
+            })}
+          </div>
         </div>
 
         <br></br>
