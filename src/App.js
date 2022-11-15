@@ -14,7 +14,6 @@ function App() {
         <Route path="/" element={ <Main/> } />
         <Route path="/rules" element={<Rules />} />
       </Routes>
-      
     </React.Fragment>
   );
 }
