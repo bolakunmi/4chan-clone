@@ -1,16 +1,18 @@
 import React from "react";
-import { popular } from "./popular";
+import UseEffectFetchPopularData from "./popular";
+import { Link } from "react-router-dom";
 
 const Rules = () => {
   return (
     <div className="general">
       <div className="main">
-        <img
-          alt="logo"
-          src={require("../media/logo-transparent.png")}
-          className="logo"
-          href="/"
-        />
+        <Link to={"/"}>
+          <img
+            alt="logo"
+            src={require("../media/logo-transparent.png")}
+            className="logo"
+          />
+        </Link>
 
         <div className="menus">
           <div className="menu_bar">
@@ -362,16 +364,7 @@ const Rules = () => {
             </div>
           </div>
           <div className="Popular_Threads_content">
-            {popular.map((popular) => {
-              const { name, img, description } = popular;
-              return (
-                <div className="popular_thread">
-                  <h6>{name}</h6>
-                  <img src={img} alt={name} />
-                  <p>{description}</p>
-                </div>
-              );
-            })}
+            <UseEffectFetchPopularData />
           </div>
         </div>
 

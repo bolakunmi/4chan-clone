@@ -1,19 +1,134 @@
 import React, { useState } from "react";
-import { popular } from "./popular";
+import UseEffectFetchPopularData from "./popular";
 import { Link } from "react-router-dom";
 
 const Main = () => {
   const [descriptionDisplay, setDescriptionDisplay] = useState(true);
 
+  const Boards_data = [
+    {
+      topic: "Japanese Culture",
+      items: [
+        { subtopic: "Anime & Manga", to: "/" },
+        { subtopic: "Anime/Cute", to: "/" },
+        { subtopic: "Anime/Wallpaper", to: "/" },
+        { subtopic: "Mecha", to: "/" },
+        { subtopic: "Cosplay & ELG", to: "/" },
+        { subtopic: "Cute/Male", to: "/" },
+        { subtopic: "Flash", to: "/" },
+        { subtopic: "Transportation", to: "/" },
+        { subtopic: "Otaku Culture", to: "/" },
+        { subtopic: "Virtual Youtubers", to: "/" },
+      ],
+    },
+    {
+      topic: "Video Games",
+      items: [
+        { subtopic: "Video Games", to: "/" },
+        { subtopic: "Video Games General", to: "/" },
+        { subtopic: "Video Games/ Multiplayer", to: "/" },
+        { subtopic: "Video Games/ Mobile", to: "/" },
+        { subtopic: "Naruto", to: "/" },
+        { subtopic: "Retro Games", to: "/" },
+        { subtopic: "Video Games/RPG", to: "/" },
+        { subtopic: "Video Games/Strategy", to: "/" },
+      ],
+    },
+    {
+      topic: "Interest",
+      items: [
+        { subtopic: "Comics & Cartoons", to: "/" },
+        { subtopic: "Technology", to: "/" },
+        { subtopic: "Television & Film", to: "/" },
+        { subtopic: "Weapons", to: "/" },
+        { subtopic: "Auto", to: "/" },
+        { subtopic: "Animals & Nature", to: "/" },
+        { subtopic: "Traditional Games", to: "/" },
+        { subtopic: "Sports", to: "/" },
+        { subtopic: "Extreme Sports", to: "/" },
+        { subtopic: "Professional Wrestling", to: "/" },
+        { subtopic: "Science & Math", to: "/" },
+        { subtopic: "History & Humanities", to: "/" },
+        { subtopic: "International", to: "/" },
+        { subtopic: "Outdoors", to: "/" },
+        { subtopic: "Toys", to: "/" },
+      ],
+    },
+    {
+      topic: "Creative",
+      items: [
+        { subtopic: "Oekaki", to: "/" },
+        { subtopic: "Papercraft & Origami", to: "/" },
+        { subtopic: "Photography", to: "/" },
+        { subtopic: "Food & Cooking", to: "/" },
+        { subtopic: "Artwork/Critique", to: "/" },
+        { subtopic: "Wallpapers/General", to: "/" },
+        { subtopic: "Literature", to: "/" },
+        { subtopic: "Music", to: "/" },
+        { subtopic: "Fashion", to: "/" },
+        { subtopic: "3DCG", to: "/" },
+        { subtopic: "Graphic Design", to: "/" },
+        { subtopic: "Do-It-Yourself", to: "/" },
+        { subtopic: "Worksafe GIF", to: "/" },
+        { subtopic: "Quests", to: "/" },
+      ],
+    },
+    {
+      topic: "Other",
+      items: [
+        { subtopic: "Business & Finance", to: "/" },
+        { subtopic: "Travel", to: "/" },
+        { subtopic: "Fitness", to: "/" },
+        { subtopic: "Paranormal", to: "/" },
+        { subtopic: "Advice", to: "/" },
+        { subtopic: "LGBT", to: "/" },
+        { subtopic: "Pony", to: "/" },
+        { subtopic: "Current News", to: "/" },
+        { subtopic: "Worksafe Requests", to: "/" },
+        { subtopic: "Very Important Posts", to: "/" },
+      ],
+    },
+    {
+      topic: "Misc.",
+      items: [
+        { subtopic: "Random", to: "/" },
+        { subtopic: "ROBOT9001", to: "/" },
+        { subtopic: "Politically Incorrect", to: "/" },
+        { subtopic: "International/Random", to: "/" },
+        { subtopic: "Cams & Meetups", to: "/" },
+        { subtopic: "Shit 4chan Says", to: "/" },
+      ],
+    },
+    {
+      topic: "Adults",
+      items: [
+        { subtopic: "Sexy Beautiful Women", to: "/" },
+        { subtopic: "Hardcore", to: "/" },
+        { subtopic: "Handsome Men", to: "/" },
+        { subtopic: "Hentai", to: "/" },
+        { subtopic: "Ecchi", to: "/" },
+        { subtopic: "Yuri", to: "/" },
+        { subtopic: "Hentai/Alternative", to: "/" },
+        { subtopic: "Yaoi", to: "/" },
+        { subtopic: "Torrents", to: "/" },
+        { subtopic: "High Resolution", to: "/" },
+        { subtopic: "Adult GIF", to: "/" },
+        { subtopic: "Adult Cartoons", to: "/" },
+        { subtopic: "Adult Requests", to: "/" },
+      ],
+    },
+  ];
+
   return (
     <div className="general">
       <div className="main">
-        <img
-          alt="logo"
-          src={require("../media/logo-transparent.png")}
-          className="logo"
-          href="/"
-        />
+        <Link to={"/"}>
+          <img
+            alt="logo"
+            src={require("../media/logo-transparent.png")}
+            className="logo"
+          />
+        </Link>
 
         {descriptionDisplay && (
           <div className="description">
@@ -40,11 +155,10 @@ const Main = () => {
               click on a board below that interests you and jump right in!
               <br></br>
               <br></br>
-              Be sure to familiarize yourself with the <Link to="/rules">
-                Rules
-              </Link>{" "}
-              before posting, and read the <a href="/">FAQ</a> if you wish to
-              learn more about how to use the site.
+              Be sure to familiarize yourself with the{" "}
+              <Link to="/rules">Rules</Link> before posting, and read the{" "}
+              <a href="/">FAQ</a> if you wish to learn more about how to use the
+              site.
             </div>
           </div>
         )}
@@ -79,261 +193,22 @@ const Main = () => {
             </div>
           </div>
           <div className="Boards-content">
-            <div>
-              <h6>Japanese Culture</h6>
-              <div>
-                <a href="/">Anime & Manga</a>
-              </div>
-              <div>
-                <a href="/">Anime/Cute</a>
-              </div>
-              <div>
-                <a href="/">Anime/Wallpaper</a>s
-              </div>
-              <div>
-                <a href="/">Mecha</a>
-              </div>
-              <div>
-                <a href="/">Cosplay & EGL</a>
-              </div>
-              <div>
-                <a href="/">Cute/Male</a>
-              </div>
-              <div>
-                <a href="/">Flas</a>h
-              </div>
-              <div>
-                <a href="/">Transportation</a>
-              </div>
-              <div>
-                <a href="/">Otaku Culture</a>
-              </div>
-              <div>
-                <a href="/">Virtual YouTubers</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Video Games</h6>
-              <div>
-                <a href="/">Video Games</a>
-              </div>
-              <div>
-                <a href="/">Video Games General</a>
-              </div>
-              <div>
-                <a href="/">Video Games/ Multilayer</a>
-              </div>
-              <div>
-                <a href="/">Video Games/ Mobile</a>
-              </div>
-              <div>
-                <a href="/">Naruto</a>
-              </div>
-              <div>
-                <a href="/">Retro Games</a>
-              </div>
-              <div>
-                <a href="/">Video games/RPG</a>
-              </div>
-              <div>
-                <a href="/">Video games/Strategy</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Interests</h6>
-              <div>
-                <a href="/">Comics & Cartoons</a>
-              </div>
-              <div>
-                <a href="/">Technology</a>
-              </div>
-              <div>
-                <a href="/">Television & Film</a>
-              </div>
-              <div>
-                <a href="/">Weapons</a>
-              </div>
-              <div>
-                <a href="/">Auto</a>
-              </div>
-              <div>
-                <a href="/">Animals & Nature</a>
-              </div>
-              <div>
-                <a href="/">Traditional Games</a>
-              </div>
-              <div>
-                <a href="/">Sports</a>
-              </div>
-              <div>
-                <a href="/">Extreme Sports</a>
-              </div>
-              <div>
-                <a href="/">Professional Wrestling</a>
-              </div>
-              <div>
-                <a href="/">Science & Math</a>
-              </div>
-              <div>
-                <a href="/">History & Humanities</a>
-              </div>
-              <div>
-                <a href="/">International</a>
-              </div>
-              <div>
-                <a href="/">Outdoors</a>
-              </div>
-              <div>
-                <a href="/">Toys</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Creative</h6>
-              <div>
-                <a href="/">Oekaki</a>
-              </div>
-              <div>
-                <a href="/">Papercraft & Origami</a>
-              </div>
-              <div>
-                <a href="/">Photography</a>
-              </div>
-              <div>
-                <a href="/">Food & Cooking</a>
-              </div>
-              <div>
-                <a href="/">Artwork/Critique</a>
-              </div>
-              <div>
-                <a href="/">Wallpapers/General</a>
-              </div>
-              <div>
-                <a href="/">Literature</a>
-              </div>
-              <div>
-                <a href="/">Music</a>
-              </div>
-              <div>
-                <a href="/">Fashion</a>
-              </div>
-              <div>
-                <a href="/">3DCG</a>
-              </div>
-              <div>
-                <a href="/">Graphic Design</a>
-              </div>
-              <div>
-                <a href="/">Do-It-Yourself</a>
-              </div>
-              <div>
-                <a href="/">Worksafe GIF</a>
-              </div>
-              <div>
-                <a href="/">Quests</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Other</h6>
-              <div>
-                <a href="/">Business & Finance</a>
-              </div>
-              <div>
-                <a href="/">Travel</a>
-              </div>
-              <div>
-                <a href="/">Fitness</a>
-              </div>
-              <div>
-                <a href="/">Paranormal</a>
-              </div>
-              <div>
-                <a href="/">Advice</a>
-              </div>
-              <div>
-                <a href="/">LGBT</a>
-              </div>
-              <div>
-                <a href="/">Pony</a>
-              </div>
-              <div>
-                <a href="/">Current News</a>
-              </div>
-              <div>
-                <a href="/">Worksafe Requests</a>
-              </div>
-              <div>
-                <a href="/">Very Important Posts</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Misc.</h6>
-              <div>
-                <a href="/">Random</a>
-              </div>
-              <div>
-                <a href="/">ROBOT9001</a>
-              </div>
-              <div>
-                <a href="/">Politically Incorrect</a>
-              </div>
-              <div>
-                <a href="/">International/Random</a>
-              </div>
-              <div>
-                <a href="/">Cams & Meetups</a>
-              </div>
-              <div>
-                <a href="/">Shit 4chan Says</a>
-              </div>
-            </div>
-
-            <div>
-              <h6>Adults</h6>
-              <div>
-                <a href="/">Sexy Beautiful Women</a>
-              </div>
-              <div>
-                <a href="/">Hardcore</a>
-              </div>
-              <div>
-                <a href="/">Handsome Men</a>
-              </div>
-              <div>
-                <a href="/">Hentai</a>
-              </div>
-              <div>
-                <a href="/">Ecchi</a>
-              </div>
-              <div>
-                <a href="/">Yuri</a>
-              </div>
-              <div>
-                <a href="/">Hentai/Alternative</a>
-              </div>
-              <div>
-                <a href="/">Yaoi</a>
-              </div>
-              <div>
-                <a href="/">Torrents</a>
-              </div>
-              <div>
-                <a href="/">High Resolution</a>{" "}
-              </div>
-              <div>
-                <a href="/">Adult GIF</a>
-              </div>
-              <div>
-                <a href="/">Adult Cartoons</a>
-              </div>
-              <div>
-                <a href="/">Adult Requests</a>
-              </div>
-            </div>
+            {Boards_data.map((each) => {
+              const { topic, items } = each;
+              return (
+                <div>
+                  <h6>{topic}</h6>
+                  {items.map((each_link) => {
+                    const { subtopic, to } = each_link;
+                    return (
+                      <div>
+                        <a href={to}>{subtopic}</a>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </div>
         </div>
         <br></br>
@@ -357,17 +232,7 @@ const Main = () => {
             </div>
           </div>
           <div className="Popular_Threads_content">
-            {popular.map((each) => {
-              const { name, img, description } = each;
-              const index = popular.indexOf(each);
-              return (
-                <div className="popular_thread" key={index}>
-                  <h6>{name}</h6>
-                  <img src={img} alt={name} />
-                  <p>{description}</p>
-                </div>
-              );
-            })}
+            <UseEffectFetchPopularData />
           </div>
         </div>
 
