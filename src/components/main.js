@@ -195,13 +195,14 @@ const Main = () => {
           <div className="Boards-content">
             {Boards_data.map((each) => {
               const { topic, items } = each;
+              
               return (
-                <div>
+                <div key={topic}>
                   <h6>{topic}</h6>
                   {items.map((each_link) => {
                     const { subtopic, to } = each_link;
                     return (
-                      <div>
+                      <div key={subtopic}>
                         <a href={to}>{subtopic}</a>
                       </div>
                     );

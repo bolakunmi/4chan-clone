@@ -7,25 +7,25 @@ const popularUrl =
 const UseEffectFetchPopularData = () => {
   const [popular, setPopular] = useState([]);
 
-  // const get_popular = () => {
-  //   return fetch(popularUrl, { mode: "no-cors" })
-  //     .then((response) => response.json())
-  //     .then((fetched) => {
-  //       return setPopular(fetched);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
-  const get_popular = async () => {
-    console.log("begin");
-    const response = await fetch(popularUrl);
-    console.log(response)
-    const fetched = await response.json();
-    console.log(fetched, "sdjbdujbu");
-    setPopular(fetched);
+  const get_popular = () => {
+    return fetch(popularUrl)
+      .then((response) => response.json())
+      .then((fetched) => {
+        return setPopular(fetched);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
+
+  // const get_popular = async () => {
+  //   console.log("begin", popular);
+  //   const response = await fetch(popularUrl, {mode:"cors"});
+  //   console.log(response)
+  //   const fetched = await response.json();
+  //   console.log(fetched, "sdjbdujbu");
+  //   setPopular(fetched);
+  // };
 
   useEffect(() => {
     get_popular();
